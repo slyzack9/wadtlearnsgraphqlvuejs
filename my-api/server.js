@@ -6,6 +6,10 @@ const schema = gql(`
     postsByUser(userId: String!): [Post]
   }
 
+  type Mutation {
+    addPost(content: String): Post 
+  }
+
   type User {
     id: ID!
     username: String!
@@ -53,6 +57,17 @@ data.users = [
 const currentUserId = 'abc-1';
 
 var resolvers = {
+  Mutation: {
+    addPost: async (_, { content }, { currentUserId, data }) => {
+      let post = { 
+        id: 'xyz-' + (data.posts.length + 1), 
+        content: content, 
+        userId: currentUserId,
+      };
+      data.posts.push(post);
+      return post;
+    }
+  },
   Query: {
     currentUser: (parent, args) => {
       let user = data.users.find( u => u.id === currentUserId );
