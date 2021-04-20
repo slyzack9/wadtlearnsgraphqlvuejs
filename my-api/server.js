@@ -69,25 +69,18 @@ var resolvers = {
     }
   },
   Query: {
-    currentUser: (parent, args) => {
-      let user = data.users.find( u => u.id === currentUserId );
-      let posts = data.posts.filter( p => p.userId === currentUserId );
-      // set posts as a property in user (immutable)
-      user = Object.assign({}, user, { 
-        posts: posts, 
-      });
+    currentUser: (parent, args, context) => {
+      let user = context.data.users.find( u => u.id === context.currentUserId );
       return user;
     },
-    postsByUser: (parent, args) => {
-      let posts = data.posts.filter( p => p.userId === args.userId ); 
+    postsByUser: (parent, args, context) => {
+      let posts = context.data.posts.filter( p => p.userId === args.userId ); 
       return posts
     },
   },
-
-  // NEW
   User: {
-    posts: (parent, args) => {
-      let posts = data.posts.filter( p => p.userId === parent.id );
+    posts: (parent, args, context) => {
+      let posts = context.data.posts.filter( p => p.userId === parent.id );
       return posts;
     }
   }
@@ -96,6 +89,10 @@ var resolvers = {
 const server = new ApolloServer({ 
   typeDefs: schema, 
   resolvers: resolvers,
+  context: { 
+    currentUserId,
+    data
+  }
 });
 
 server.listen(4001).then(({ url }) => {
