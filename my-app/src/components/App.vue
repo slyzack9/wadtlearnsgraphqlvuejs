@@ -98,7 +98,7 @@ export default {
     posts: {
       query: POSTS_BY_USER,
       variables() {
-        return { userId: this.currentUser.id };
+        return { userId: String(this.currentUser.id) };
       },
       update(data) {
         return data.postsByUser;
