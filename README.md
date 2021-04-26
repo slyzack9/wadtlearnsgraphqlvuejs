@@ -12,6 +12,7 @@ This project have 2 parts:
 2) my-api - GraphQL server that my-app connects to
 
 # How to use/install this project
+You may fork this repo by pressing the fork button on the top-right of GitHub page. Then use that repo version as your starting point, then follow the instructions below.
 
 1) git clone this repo: `git clone https://github.com/PoliteknikBrunei-WADT/wadtlearnsgraphqlvuejs`
 2) `cd wadtlearnsgraphqlvuejs`
