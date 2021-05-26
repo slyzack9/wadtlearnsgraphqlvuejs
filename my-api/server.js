@@ -46,12 +46,16 @@ data.posts = [
 data.users = [
   {
     id: 'abc-1', 
-    username: "andy25",
+    username: "Sharifuddin",
   },
   {
     id: 'abc-2', 
-    username: "randomUser",
-  }
+    username: "Faiq",
+  },
+  {
+    id: 'abc-2', 
+    username: "Iqbal",
+  },
 ];
 
 const currentUserId = 'abc-1';
