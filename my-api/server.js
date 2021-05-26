@@ -46,15 +46,15 @@ data.posts = [
 data.users = [
   {
     id: 'abc-1', 
-    username: "Ridhauddin",
+    username: "Sharifuddin",
   },
   {
     id: 'abc-2', 
-    username: "AmpuanZuhairah",
+    username: "Faiq",
   },
   {
     id: 'abc-2', 
-    username: "Hilmi",
+    username: "Iqbal",
   },
 ];
 
